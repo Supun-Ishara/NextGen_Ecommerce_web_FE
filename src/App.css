@@ -1,39 +1,204 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color-052659: #052659;
+    --color-093680: #093680;
+    --color-e8f8f5: #d7f6f0;
+    --color-113b6b: #113b6b;
+    --color-ffde9c: #ffde9c;
+    --color-103266: #103266;
+    --color-ffffff: #ffffff;
+    --color-c0fcf4: #c0fcf4;
+}
+body{
+    font-family: "Rubik", sans-serif;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: inherit;
+}
+.gap-10{
+    gap: 10px;
+}
+.gap-15{
+    gap: 15px;
+}
+.gap-30{
+    gap: 30px;
+}
+.button{
+    color: var(--color-ffffff);
+    font-size: 20px;
+    /* margin: 10px 88px; */
+    font-weight: 400;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+}
+.button:hover{
+    color: var(--color-ffde9c);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header Part */
+
+.header-top-strip{
+    border-bottom: 1px solid var(--color-093680);
+    background-color: var(--color-052659);
+}
+.header-upper{
+    background-color: var(--color-052659);
+}
+.header-bottom{
+    background-color: var(--color-113b6b);
+}
+.header-upper .input-group-text{
+    background-color: var(--color-e8f8f5);
+}
+.header-upper.header-upper-links img{
+    width: 35px;
+    height: 35px;
+}
+.header-bottom .menu-links a,
+.header-bottom .dropdown button{
+    color: white;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: 0.3;
+    text-transform: uppercase;
+}
+/* .header-bottom .dropdown button::before{
+    contain: url('../public/images/menu.svg');
+} */
+.header-bottom .dropdown button:focus{
+    box-shadow: none;
+}
+.header-bottom .dropdown-menu{
+    background-color: var(--color-052659);
+    width: 100%;
+    transform: translate3d(0px, 57px, 0px) !important;
+}
+.header-bottom .dropdown-item{
+    padding: 20px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid var(--color-093680);
+}
+.header-bottom .dropdown-item:hover{
+    background-color: transparent;
+    color: var(--color-ffde9c) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+
+/* Header Part End Here */
+
+
+
+/* Footer Part */
+
+footer{
+    background-color: var(--color-052659);
+}
+footer:not(:first-child){
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+footer .input-group-text{
+    background-color: var(--color-113b6b);
+    color: var(--color-ffffff);
+    padding: 8px 17px;
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Footer Part End */
+
+
+/* Home Page */
+
+/* .main-banner-content{
+    top: 15%;
+    left: 5%;
+}
+.main-banner-content h4{
+    font-size: 45px;
+    font-weight: 450;
+    line-height: 24px;
+    color: var(--color-ffffff);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin: 5px 27px;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.main-banner-content h5{
+    font-size: 50px;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 60px;
+    color: var(--color-ffffff);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin: 30px 75px;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.small-banner-content{
+    top: 15%;
+    left: 5%;
 }
+.small-banner-content h4{
+    font-size: 45px;
+    font-weight: 450;
+    line-height: 24px;
+    color: var(--color-ffffff);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin: 5px 27px;
+}
+
+.small-banner-content h5{
+    font-size: 50px;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 60px;
+    color: var(--color-ffffff);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin: 30px 75px;
+} */
+.main-banners{
+    /* margin-left: -100px; */
+      height: 680px;  
+      padding-top: 0;
+}
+.img-fluid{
+    height: 590px;
+    width: 100%;
+}
+
+/* Home Wrapper 2 */
+
+.home-wrapper-2{
+    background-color: var(--color-c0fcf4);
+    /* opacity: 0.5; */
+}
+
+/* Home Wrapper 2 End */
+
+/* Category section */
+
+.categories{
+    background-color: var(--color-ffffff);
+    box-shadow: 0 0 10px #0000001a;
+    padding: 15px;
+}
+
+.party-frock{
+    height: 150px;
+    width: 130px;
+}
+
+/* Category section End */
+
+/* Home Page End */
