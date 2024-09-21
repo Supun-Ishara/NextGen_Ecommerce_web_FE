@@ -85,13 +85,94 @@ const Home = () => {
       <div className='container-xxl'>
           <div className='row'>
             <div className='col-12'>
-              <div className='categories d-flex justify-content-between align-items-center'>
-                <div className='d-flex gap-30 align-items-center'>
-                  <div>
+              <div className='categories d-flex justify-content-between flex-wrap align-items-center'>
+                <div className='gap align-items-cente'>
+                  <img 
+                    src='images/prom-dress.jpg' 
+                    alt='prom-dress' 
+                    className='category' 
+                  />
+                  <div className='category-name'>
                     <h6>Prom Dresses</h6>
                     <p></p>
                   </div>
-                  <img src='images/party-frock.png' alt='party-frock' className='party-frock' />
+                </div>
+                <div className='gap align-items-center'>
+                  <img 
+                    src='images/party-frock.jpg' 
+                    alt='party-frock' 
+                    className='category' 
+                  />
+                  <div className='category-name'>
+                    <h6>Party Frocks</h6>
+                    <p></p>
+                  </div>
+                </div>
+                <div className='gap align-items-center'>
+                  <img 
+                    src='images/cocktail-dress.jpg' 
+                    alt='cocktail-dress' 
+                    className='category' 
+                  />
+                  <div className='category-name'>
+                    <h6>Cocktail Frocks</h6>
+                    <p></p>
+                  </div>
+                </div>
+                <div className='gap align-items-center'>
+                  <img 
+                    src='images/office-wear.jpg' 
+                    alt='office-wear' 
+                    className='category' 
+                  />
+                  <div className='category-name'>
+                    <h6>Office Wears</h6>
+                    <p></p>
+                  </div>
+                </div>
+                <div className='gap align-items-center'>
+                  <img 
+                    src='images/normal-frock.jpg' 
+                    alt='normal-frock' 
+                    className='category' 
+                  />
+                  <div className='category-name'>
+                    <h6>Casual Wears</h6>
+                    <p></p>
+                  </div>
+                </div>
+                <div className='gap align-items-center'>
+                  <img 
+                    src='images/tops.jpg' 
+                    alt='tops' 
+                    className='category' 
+                  />
+                  <div className='category-name'>
+                    <h6>Tops & Shirts</h6>
+                    <p></p>
+                  </div>
+                </div>
+                <div className='gap align-items-center'>
+                  <img 
+                    src='images/pant.jpg' 
+                    alt='pant' 
+                    className='category' 
+                  />
+                  <div className='category-name'>
+                    <h6>Pants</h6>
+                    <p></p>
+                  </div>
+                </div>
+                <div className='gap align-items-center'>
+                  <img 
+                    src='images/jumpsuit.jpg' 
+                    alt='jumpsuit' 
+                    className='category' 
+                  />
+                  <div className='category-name'>
+                    <h6>Jumpsuits</h6>
+                    <p></p>
+                  </div>
                 </div>
               </div>
             </div>
