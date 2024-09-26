@@ -15,7 +15,8 @@
     --color-ededed: #ededed;
     --color-124494: #124494;
     --color-1c1c1b: #1c1c1b;
-    --color-bffff9: rgba(213, 252, 253, 0.2);
+    --color-4d3913: #4d3913;
+    --color-bffff9: rgba(142, 251, 255, 0.3);
 }
 body{
     font-family: "Rubik", sans-serif;
@@ -250,16 +251,16 @@ footer .input-group-text{
 }
 .product-card .product-image{
     height: 270px;
-    display: flex;
-    justify-content: center; /* Horizontally centers the image */
-    align-items: center;    /* Vertically centers the image */
+    /* display: flex;
+    align-items: center;  */
 }
 .product-card .product-image img{
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
-    /* position: absolute; */
+    /* position: absolute;  */
     transition: opacity 0.3s ease-in-out;
+    /* transition: 0.3s; */
 }
 .product-card .product-image>img:last-child{
     display: none;
@@ -302,21 +303,95 @@ footer .input-group-text{
 /* Special Product */
 
 .special-product-card{
-    padding: 10px;
+    padding: 20px 10px;
     border-radius: 10px;
     background-color: var(--color-ffffff);
 }
 
 .special-product-card .special-product-image{
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center;      */
-    /* height: 150px;  */
+    display: flex; 
+     /* justify-content: center;  */
+    align-items: center;      
+     /* height: 150px;  */
     padding-bottom: 50px;
 }
 .special-product-card .special-product-image img{
     max-width: 100%;
     height: auto;      
-    object-fit: contain;
+    /* object-fit: contain; */
 }
+.special-product-content{
+    width: 300px;
+    margin-right: 20px;
+}
+.button1{
+    background-color: var(--color-052659);
+    color: var(--color-ffffff);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.button1:hover{
+    color: var(--color-ffffff);
+    background-color: var(--color-4d3913);
+}
+
 /* Special Product ends */
+
+/* Famous card */
+
+.famous-card{
+    width: 305px;
+}
+.famous-card .famous-content{
+    top: 7%;
+    left: 6%;
+}
+.famous-card img{
+    border-radius: 10px;
+    height: 420px;
+    width: 305px;
+}
+.famous-content{
+    width: 290px;
+}
+.famous-content h5{
+    font-size: 13px;
+    line-height: 25px;
+    font-weight: 400px;
+    color: var(--color-ffffff);
+    margin-bottom: 7px;
+    text-transform: uppercase;
+}
+.famous-content h6{
+    font-size: 25px;
+    line-height: 38px;
+    font-weight: 500;
+    color: var(--color-ffffff);
+}
+.famous-content p{
+    font-size: 15px;
+    line-height: 25px;
+    font-weight: 100;
+    color: var(--color-ffffff);
+}
+/* Famous card ends */
+
+
+/* Our Store */
+
+.filter-card{
+    background-color: var(--color-ffffff);
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+.filter-title{
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    color: var(--color-1c1c1b);
+}
+
+/* Our Store ends */

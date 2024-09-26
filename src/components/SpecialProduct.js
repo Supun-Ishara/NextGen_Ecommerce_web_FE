@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const SpecialProduct = () => {
   return (
-    <div className='col-4'>
+    <div className='col-6 mb-3'>
         <div className='special-product-card'>
             <div className='d-flex justify-content-between'>
                 <div className='special-product-image'>
@@ -25,12 +26,12 @@ const SpecialProduct = () => {
                             <b>5 </b>days
                         </p>
                         <div className='d-flex gap-10 align-items-center'>
-                            <span className='badge rounded-circle p-3 bg-warning'>1</span>:
-                            <span className='badge rounded-circle p-3 bg-warning'>1</span>:
-                            <span className='badge rounded-circle p-3 bg-warning'>1</span>
+                            <span className='badge rounded-circle p-3 bg-danger'>1</span>:
+                            <span className='badge rounded-circle p-3 bg-danger'>1</span>:
+                            <span className='badge rounded-circle p-3 bg-danger'>1</span>
                         </div>
                     </div>
-                    <div className='prod-count mt-3'>
+                    <div className='prod-count my-3'>
                             <p>Products: 5</p>
                             <div className="progress">
                               <div 
@@ -43,6 +44,7 @@ const SpecialProduct = () => {
                               </div>
                             </div>
                         </div>
+                      <Link className='button1'>Add to Cart</Link>
                 </div>
             </div>
         </div>
