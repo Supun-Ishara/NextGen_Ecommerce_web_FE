@@ -1,24 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 //import Marquee from 'react-fast-marquee';
-import ProductCard from '../components/ProductCard';
-import SpecialProduct from '../components/SpecialProduct';
+import ProductCard from "../components/ProductCard";
+import SpecialProduct from "../components/SpecialProduct";
 //import BlogCard from '../components/BlogCard';
 
 const Home = () => {
   return (
     <>
-      <section className='home-wrapper-1 py-0'>
-         <div className='main-banners'>
-         <Link className='button' >
-                <img 
-                   src='images/main-banner.jpg' 
-                   className='img-fluid rounded-3'  
-                   alt='main-banner'
-                />
-             </Link> 
-          </div>    
-            {/* <div className='col-4'>
+      <section className="home-wrapper-1 py-0">
+        <div className="main-banners">
+          <Link className="button">
+            <img
+              src="images/main-banner.jpg"
+              className="img-fluid rounded-3"
+              alt="main-banner"
+            />
+          </Link>
+        </div>
+        {/* <div className='col-4'>
               <div className='d-flex flex-wrap justify-content-between align-items-center'>
               <div className='main-banner position-relative p-3' style={{ backgroundColor: 'green',  paddingLeft: '-30px', marginLeft: '-40px' }}>
                 <img 
@@ -34,146 +34,141 @@ const Home = () => {
                  </div>
               </div>
               </div>  */}
-            {/* </div>
+        {/* </div>
 
           </div> */}
-         {/* </div> */}
+        {/* </div> */}
       </section>
-      <section className='home-wrapper-2 py-5'>
-        <div className='container-xxl'>
-          <div className='row'>
-            <div className='col-12'>
-              <div className='services d-flex align-items-center justify-content-between'>
-                <div className='d-flex align-items-center gap-10'>
-                   <img src='images/service.png' alt='services' />
-                     <div>
-                        <h6>Free Shipping</h6>
-                        <p className='mb-0'>From all orders over Rs.10000/=</p>
-                     </div>
+      <section className="home-wrapper-2 py-5">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <div className="services d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center gap-10">
+                  <img src="images/service.png" alt="services" />
+                  <div>
+                    <h6>Free Shipping</h6>
+                    <p className="mb-0">From all orders over Rs.10000/=</p>
+                  </div>
                 </div>
-                <div className='d-flex align-items-center gap-15'>
-                   <img src='images/service-02.png' alt='services' />
-                     <div>
-                        <h6>Daily Surprise Offers</h6>
-                        <p className='mb-0'>Save upto 15% off</p>
-                     </div>
+                <div className="d-flex align-items-center gap-15">
+                  <img src="images/service-02.png" alt="services" />
+                  <div>
+                    <h6>Daily Surprise Offers</h6>
+                    <p className="mb-0">Save upto 15% off</p>
+                  </div>
                 </div>
-                <div className='d-flex align-items-center gap-15'>
-                   <img src='images/service-03.png' alt='services' />
-                     <div>
-                        <h6>Support 24/7</h6>
-                        <p className='mb-0'>Shop with an expert</p>
-                     </div>
+                <div className="d-flex align-items-center gap-15">
+                  <img src="images/service-03.png" alt="services" />
+                  <div>
+                    <h6>Support 24/7</h6>
+                    <p className="mb-0">Shop with an expert</p>
+                  </div>
                 </div>
-                <div className='d-flex align-items-center gap-15'>
-                   <img src='images/service-04.png' alt='services' />
-                     <div>
-                        <h6>Affordable Prices</h6>
-                        <p className='mb-0'>Get Factory Default Price</p>
-                     </div>
+                <div className="d-flex align-items-center gap-15">
+                  <img src="images/service-04.png" alt="services" />
+                  <div>
+                    <h6>Affordable Prices</h6>
+                    <p className="mb-0">Get Factory Default Price</p>
+                  </div>
                 </div>
-                <div className='d-flex align-items-center gap-15'>
-                   <img src='images/service-05.png' alt='services' />
-                     <div>
-                        <h6>Secure Payments</h6>
-                        <p className='mb-0'>100% Protected Pyment</p>
-                     </div>
+                <div className="d-flex align-items-center gap-15">
+                  <img src="images/service-05.png" alt="services" />
+                  <div>
+                    <h6>Secure Payments</h6>
+                    <p className="mb-0">100% Protected Pyment</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </section>
-      <section className='home-wrapper-3 py-5'>
-      <div className='container-xxl'>
-          <div className='row'>
-            <div className='col-12'>
-              <div className='categories d-flex justify-content-between flex-wrap align-items-center'>
-                <div className='gap align-items-cente'>
-                  <img 
-                    src='images/prom-dress.jpg' 
-                    alt='prom-dress' 
-                    className='category' 
+      <section className="home-wrapper-3 py-5">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <div className="categories d-flex justify-content-between flex-wrap align-items-center">
+                <div className="gap align-items-cente">
+                  <img
+                    src="images/prom-dress.jpg"
+                    alt="prom-dress"
+                    className="category"
                   />
-                  <div className='category-name'>
+                  <div className="category-name">
                     <h6>Prom Dresses</h6>
                     <p></p>
                   </div>
                 </div>
-                <div className='gap align-items-center'>
-                  <img 
-                    src='images/party-frock.jpg' 
-                    alt='party-frock' 
-                    className='category' 
+                <div className="gap align-items-center">
+                  <img
+                    src="images/party-frock.jpg"
+                    alt="party-frock"
+                    className="category"
                   />
-                  <div className='category-name'>
+                  <div className="category-name">
                     <h6>Party Frocks</h6>
                     <p></p>
                   </div>
                 </div>
-                <div className='gap align-items-center'>
-                  <img 
-                    src='images/cocktail-dress.jpg' 
-                    alt='cocktail-dress' 
-                    className='category' 
+                <div className="gap align-items-center">
+                  <img
+                    src="images/cocktail-dress.jpg"
+                    alt="cocktail-dress"
+                    className="category"
                   />
-                  <div className='category-name'>
+                  <div className="category-name">
                     <h6>Cocktail Frocks</h6>
                     <p></p>
                   </div>
                 </div>
-                <div className='gap align-items-center'>
-                  <img 
-                    src='images/office-wear.jpg' 
-                    alt='office-wear' 
-                    className='category' 
+                <div className="gap align-items-center">
+                  <img
+                    src="images/office-wear.jpg"
+                    alt="office-wear"
+                    className="category"
                   />
-                  <div className='category-name'>
+                  <div className="category-name">
                     <h6>Office Wears</h6>
                     <p></p>
                   </div>
                 </div>
-                <div className='gap align-items-center'>
-                  <img 
-                    src='images/normal-frock.jpg' 
-                    alt='normal-frock' 
-                    className='category' 
+                <div className="gap align-items-center">
+                  <img
+                    src="images/normal-frock.jpg"
+                    alt="normal-frock"
+                    className="category"
                   />
-                  <div className='category-name'>
+                  <div className="category-name">
                     <h6>Casual Wears</h6>
                     <p></p>
                   </div>
                 </div>
-                <div className='gap align-items-center'>
-                  <img 
-                    src='images/tops.jpg' 
-                    alt='tops' 
-                    className='category' 
-                  />
-                  <div className='category-name'>
+                <div className="gap align-items-center">
+                  <img src="images/tops.jpg" alt="tops" className="category" />
+                  <div className="category-name">
                     <h6>Tops & Shirts</h6>
                     <p></p>
                   </div>
                 </div>
-                <div className='gap align-items-center'>
-                  <img 
-                    src='images/maternity.jpg' 
-                    alt='maternity' 
-                    className='category' 
+                <div className="gap align-items-center">
+                  <img
+                    src="images/maternity.jpg"
+                    alt="maternity"
+                    className="category"
                   />
-                  <div className='category-name'>
+                  <div className="category-name">
                     <h6>Maternity Prom Dresses</h6>
                     <p></p>
                   </div>
                 </div>
-                <div className='gap align-items-center'>
-                  <img 
-                    src='images/jumpsuit.jpg' 
-                    alt='jumpsuit' 
-                    className='category' 
+                <div className="gap align-items-center">
+                  <img
+                    src="images/jumpsuit.jpg"
+                    alt="jumpsuit"
+                    className="category"
                   />
-                  <div className='category-name'>
+                  <div className="category-name">
                     <h6>Pants & Jumpsuits</h6>
                     <p></p>
                   </div>
@@ -181,108 +176,127 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>    
+        </div>
       </section>
-      <section className='featured-wrapper py-5 home-wrapper-4'>
-        <div className='container-xxl'>
-          <div className='row'>
-          <div className='col-12'>
-            <h3 className='section-heading'>Featured Collection
-            </h3>
-          </div>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
+      <section className="featured-wrapper py-5 home-wrapper-4">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <h3 className="section-heading">Featured Collection</h3>
+            </div>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
           </div>
         </div>
       </section>
-      <section className='famous-wrapper d-flex py-5 home-wrapper-4'>
-        <div className='container-xxl'>
-          <div className='row'>
-            <div className='col-3'>
-              <div className='famous-card position-relative'>
-                <img src='images/famous-01.png' className='img-fluid' alt='famous'/>
-                <div className='famous-content position-absolute'>
-                   <h5>Big screen</h5>
-                   <h6>Smart watch series 7</h6>
-                   <p>from 50000rs or 45000rs/ for 24 month</p>
+      <section className="famous-wrapper d-flex py-5 home-wrapper-4">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-3">
+              <div className="famous-card position-relative">
+                <img
+                  src="images/famous-01.png"
+                  className="img-fluid"
+                  alt="famous"
+                />
+                <div className="famous-content position-absolute">
+                  <h5>Big screen</h5>
+                  <h6>Smart watch series 7</h6>
+                  <p>from 50000rs or 45000rs/ for 24 month</p>
                 </div>
               </div>
             </div>
-            <div className='col-3'>
-              <div className='famous-card position-relative'>
-                <img src='images/famous-02.png' className='img-fluid' alt='famous'/>
-                <div className='famous-content position-absolute'>
-                   <h5 className='text-dark'>Big screen</h5>
-                   <h6 className='text-dark'>Smart watch series 7</h6>
-                   <p className='text-dark'>from 50000rs or 45000rs/ for 24 month</p>
+            <div className="col-3">
+              <div className="famous-card position-relative">
+                <img
+                  src="images/famous-02.png"
+                  className="img-fluid"
+                  alt="famous"
+                />
+                <div className="famous-content position-absolute">
+                  <h5 className="text-dark">Big screen</h5>
+                  <h6 className="text-dark">Smart watch series 7</h6>
+                  <p className="text-dark">
+                    from 50000rs or 45000rs/ for 24 month
+                  </p>
                 </div>
               </div>
             </div>
-            <div className='col-3'>
-              <div className='famous-card position-relative'>
-                <img src='images/famous-03.png' className='img-fluid' alt='famous'/>
-                <div className='famous-content position-absolute'>
-                   <h5 className='text-dark'>Big screen</h5>
-                   <h6 className='text-dark'>Smart watch series 7</h6>
-                   <p className='text-dark'>from 50000rs or 45000rs/ for 24 month</p>
+            <div className="col-3">
+              <div className="famous-card position-relative">
+                <img
+                  src="images/famous-03.png"
+                  className="img-fluid"
+                  alt="famous"
+                />
+                <div className="famous-content position-absolute">
+                  <h5 className="text-dark">Big screen</h5>
+                  <h6 className="text-dark">Smart watch series 7</h6>
+                  <p className="text-dark">
+                    from 50000rs or 45000rs/ for 24 month
+                  </p>
                 </div>
               </div>
             </div>
-            <div className='col-3'>
-              <div className='famous-card position-relative'>
-                <img src='images/famous-04.png' className='img-fluid' alt='famous'/>
-                <div className='famous-content position-absolute'>
-                   <h5 className='text-dark'>Big screen</h5>
-                   <h6 className='text-dark'>Smart watch series 7</h6>
-                   <p className='text-dark'>from 50000rs or 45000rs/ for 24 month</p>
+            <div className="col-3">
+              <div className="famous-card position-relative">
+                <img
+                  src="images/famous-04.png"
+                  className="img-fluid"
+                  alt="famous"
+                />
+                <div className="famous-content position-absolute">
+                  <h5 className="text-dark">Big screen</h5>
+                  <h6 className="text-dark">Smart watch series 7</h6>
+                  <p className="text-dark">
+                    from 50000rs or 45000rs/ for 24 month
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className='special-wrapper py-5 home-wrapper-4'>
-        <div className='container-xxl'>
-          <div className='row'>
-          <div className='col-12'>
-            <h3 className='section-heading'>Special Products</h3>
+      <section className="special-wrapper py-5 home-wrapper-4">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <h3 className="section-heading">Special Products</h3>
+            </div>
           </div>
-          </div>
-          <div className='row'>
-            <SpecialProduct/>
-            <SpecialProduct/>
-            <SpecialProduct/>
-            <SpecialProduct/>
+          <div className="row">
+            <SpecialProduct />
+            <SpecialProduct />
+            <SpecialProduct />
+            <SpecialProduct />
           </div>
         </div>
       </section>
-      <section className='popular-wrapper py-5 home-wrapper-4'>
-        <div className='container-xxl'>
-          <div className='row'>
-          <div className='col-12'>
-            <h3 className='section-heading'>Our Popular Dresses
-            </h3>
+      <section className="popular-wrapper py-5 home-wrapper-4">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <h3 className="section-heading">Our Popular Dresses</h3>
+            </div>
           </div>
-          </div>
-          <div className='row'>
+          <div className="row">
             {/* <div className='col-2'>
               <div className='card'></div>
             </div>
             <div className='col-2'>
               <div className='card'></div>
             </div> */}
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
           </div>
         </div>
       </section>
-
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
