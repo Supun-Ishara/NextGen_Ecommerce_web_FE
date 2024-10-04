@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineHeart } from "react-icons/ai";
 import { TbGitCompare } from "react-icons/tb";
 import sizechart from "../images/size-chart.jpg"
+//import ReactImageMagnify from 'react-image-magnify';
 
 const SingleProduct = () => {
   const props = {
@@ -17,6 +18,7 @@ const SingleProduct = () => {
     zoomWidth: 600, 
     img: "https://calabro.com.au/cdn/shop/products/lace-v-back-chiffon-bridesmaid-dresses-566321_800x800.webp?v=1704183427"
   };
+  // const catImageUrl = '../images/watch.jpg';
   return (
     <>
     <Meta title={"Product Name"} />
@@ -28,6 +30,20 @@ const SingleProduct = () => {
             <div className='main-product-image'>
               <div>
               <ReactImageZoom {...props} />
+
+              {/* <ReactImageMagnify {...{
+    smallImage: {
+        alt: 'Wristwatch by Ted Baker London',
+        isFluidWidth: true,
+        src: catImageUrl
+    },
+    largeImage: {
+        src: catImageUrl,
+        width: 1200,
+        height: 1800
+    }
+}} /> */}
+
               </div>
             </div>
             <div className='other-product-images d-flex flex-wrap gap-15'>
