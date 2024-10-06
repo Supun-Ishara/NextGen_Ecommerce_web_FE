@@ -50,14 +50,14 @@ const SingleProduct = () => {
                 <img
                   src="https://calabro.com.au/cdn/shop/products/lace-v-back-chiffon-bridesmaid-dresses-566321_800x800.webp?v=1704183427"
                   className="img-other img-fluid"
-                  alt=""
+                  alt="pro-img"
                 />
               </div>
               <div>
                 <img
                   src="https://calabro.com.au/cdn/shop/products/lace-v-back-chiffon-bridesmaid-dresses-566321_800x800.webp?v=1704183427"
                   className="img-other img-fluid"
-                  alt=""
+                  alt="ptro-img"
                 />
               </div>
             </div>
@@ -149,12 +149,12 @@ const SingleProduct = () => {
                 </div>
                 <div className="d-flex align-items-center gap-15">
                   <div>
-                    <a href="">
+                    <a href="/compare">
                       <TbGitCompare className="fs-5 me-2" /> Add to Compare
                     </a>
                   </div>
                   <div>
-                    <a href="">
+                    <a href="/wishlist">
                       <AiOutlineHeart className="fs-5 me-2" /> Add to Wishlist
                     </a>
                   </div>

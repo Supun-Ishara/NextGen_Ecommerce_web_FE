@@ -52,16 +52,16 @@ const Footer = () => {
                   nextgendresses@gmail.com
                 </a>
                 <div className='social_icons d-flex align-items-center gap-30 mt-4'>
-                  <a className='text-white' href='#'>
+                  <a className='text-white' href='https://facebook.com'>
                     <FaFacebookF className='fs-4' />
                   </a>
-                  <a className='text-white' href='#'>
+                  <a className='text-white' href='https://instagram.com'>
                     <FaInstagram className='fs-4' />
                   </a>
-                  <a className='text-white' href='#'>
+                  <a className='text-white' href='https://instagram.com'>
                     <FaPinterestP className='fs-4' />
                   </a>
-                  <a className='text-white' href='#'>
+                  <a className='text-white' href='https://whatsapp.com'>
                     <FaWhatsapp className='fs-4' />
                   </a>
                 </div>
