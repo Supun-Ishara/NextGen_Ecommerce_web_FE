@@ -758,13 +758,13 @@ footer .input-group-text{
     width: 100%;
     cursor: pointer;
 }
-label::before{
+.label-colspan::before{
     content: '+';
     margin-right: 10px;
     font-size: 15px;
     font-weight: 600;
 }
-input[type='checkbox']{
+.accordion[type='checkbox']{
     display: none;
 }
 .accordion .product-data{

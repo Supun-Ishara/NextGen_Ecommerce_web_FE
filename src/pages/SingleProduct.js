@@ -163,7 +163,7 @@ const SingleProduct = () => {
                   <div className="accordion d-flex align-items-center">
                     <li>
                       <input type="checkbox" className="accordion" id="first" />
-                      <label for="first">Delivery Information : </label>
+                      <label className="label-colspan" for="first">Delivery Information : </label>
                       <p className="product-data">
                         We partner with trusted and reliable courier services to
                         ensure your order is delivered safely and on time. All
@@ -193,7 +193,7 @@ const SingleProduct = () => {
                         className="accordion"
                         id="second"
                       />
-                      <label for="second">Size Chart : </label>
+                      <label className="label-colspan" for="second">Size Chart : </label>
                       <div className="content">
                         <img
                           src={sizechart}
