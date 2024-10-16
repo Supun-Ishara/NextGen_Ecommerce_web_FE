@@ -36,7 +36,7 @@ const Header = () => {
               <div className="input-group">
                 <input
                   type="text"
-                  class="form-control py-2"
+                  className="form-control py-2"
                   placeholder="Search Design Here..."
                   aria-label="Search Design Here..."
                   aria-describedby="basic-addon2"
