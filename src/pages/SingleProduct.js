@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
 import ProductCard from "../components/ProductCard";
@@ -9,14 +9,47 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { TbGitCompare } from "react-icons/tb";
 import sizechart from "../images/size-chart.jpg";
 import Container from "../components/Container";
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAProduct } from "../features/products/productSlice";
+import { toast } from "react-toastify";
+import { addProductToCart } from "../features/user/userSlice";
 //import ReactImageMagnify from 'react-image-magnify';
 
 const SingleProduct = () => {
+  //const [color, setColor] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+
+  const location = useLocation();
+  const getProductId = location.pathname.split("/")[2];
+  const dispatch = useDispatch();
+  const productState = useSelector((state) => state.product.singleproduct);
+  useEffect(() => {
+    dispatch(getAProduct(getProductId));
+  }, []);
+
+  const uploadCart = () => {
+    if (selectedColor  === null) {
+      toast.error("Please Choose Color");
+      return false
+    } else {
+      dispatch(
+        addProductToCart({
+          productId:productState?._id,
+          quantity,
+          color:selectedColor,
+          price:productState?.price,
+        })
+      );
+    }
+  };
+
   const props = {
     width: 400,
     height: 600,
     zoomWidth: 600,
-    img: "https://calabro.com.au/cdn/shop/products/lace-v-back-chiffon-bridesmaid-dresses-566321_800x800.webp?v=1704183427",
+    img: productState?.images[0]?.url ? productState?.images[0]?.url : [],
   };
   // const catImageUrl = '../images/watch.jpg';
   return (
@@ -46,31 +79,35 @@ const SingleProduct = () => {
               </div>
             </div>
             <div className="other-product-images d-flex flex-wrap gap-15">
-              <div>
-                <img
-                  src="https://calabro.com.au/cdn/shop/products/lace-v-back-chiffon-bridesmaid-dresses-566321_800x800.webp?v=1704183427"
-                  className="img-other img-fluid"
-                  alt="pro-img"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://calabro.com.au/cdn/shop/products/lace-v-back-chiffon-bridesmaid-dresses-566321_800x800.webp?v=1704183427"
-                  className="img-other img-fluid"
-                  alt="ptro-img"
-                />
-              </div>
+              {productState?.images.map((item, index) => {
+                return (
+                  <>
+                    <div>
+                      <img
+                        src={item?.url}
+                        className="img-other img-fluid"
+                        alt="pro-img"
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src={item?.url}
+                        className="img-other img-fluid"
+                        alt="pro-img"
+                      />
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
           <div className="col-6">
             <div className="main-product-details">
               <div className="border-bottom">
-                <h3 className="title">
-                  Round Neck Three Quarter Sleeve Shift Dress
-                </h3>
+                <h3 className="title">{productState?.title}</h3>
               </div>
               <div className="border-bottom py-3">
-                <p className="price">LKR 4,500.00</p>
+                <p className="price">LKR {productState?.price}</p>
               </div>
               <div className="py-3">
                 <div className="d-flex gap-10 align-items-center my-2">
@@ -79,11 +116,15 @@ const SingleProduct = () => {
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Category : </h3>
-                  <p className="product-data">Frock</p>
+                  <p className="product-data">{productState?.category}</p>
+                </div>
+                <div className="d-flex gap-10 align-items-center my-2">
+                  <h3 className="product-heading">Tags : </h3>
+                  <p className="product-data">{productState?.tags}</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">SKU : </h3>
-                  <p className="product-data">XEZZ80044-S</p>
+                  <p className="product-data">{productState?.sku}</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Availability : </h3>
@@ -124,7 +165,11 @@ const SingleProduct = () => {
                 <div className="d-flex gap-10 align-items-center mt-2 mb-3">
                   <h3 className="product-heading">Color : </h3>
                   <div className="product-color">
-                    <Color />
+                    <Color
+                      setColor={setSelectedColor}
+                      colorData={productState?.color}
+                      selectedColor={selectedColor}
+                    />
                   </div>
                 </div>
                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
@@ -138,10 +183,20 @@ const SingleProduct = () => {
                       className="form-control"
                       style={{ width: "63px" }}
                       id=""
+                      onChange={(e) => setQuantity(e.target.value)}
+                      value={quantity}
                     />
                   </div>
                   <div className="d-flex align-items-center gap-30 ms-5">
-                    <button className="button1 border-0" type="submit">
+                    <button
+                      className="button1 border-0"
+                      // data-bs-toggle="modal"
+                      // data-bs-target="#staticBackdrop"
+                      type="button"
+                      onClick={() => {
+                        uploadCart();
+                      }}
+                    >
                       Add to Cart
                     </button>
                     <button className="button1 signup">Buy Now</button>
@@ -163,7 +218,9 @@ const SingleProduct = () => {
                   <div className="accordion d-flex align-items-center">
                     <li>
                       <input type="checkbox" className="accordion" id="first" />
-                      <label className="label-colspan" for="first">Delivery Information : </label>
+                      <label className="label-colspan" for="first">
+                        Delivery Information :{" "}
+                      </label>
                       <p className="product-data">
                         We partner with trusted and reliable courier services to
                         ensure your order is delivered safely and on time. All
@@ -193,7 +250,9 @@ const SingleProduct = () => {
                         className="accordion"
                         id="second"
                       />
-                      <label className="label-colspan" for="second">Size Chart : </label>
+                      <label className="label-colspan" for="second">
+                        Size Chart :{" "}
+                      </label>
                       <div className="content">
                         <img
                           src={sizechart}
@@ -267,25 +326,9 @@ const SingleProduct = () => {
           <div className="col-12">
             <h4>Description & Product Information</h4>
             <div className="bg-white p-3">
-              <p>
-                Elevate your style with our stunning party frock, designed to
-                make you shine at every special occasion. Crafted from
-                premium-quality fabric, this elegant dress features a flattering
-                silhouette that hugs your curves perfectly. With intricate
-                detailing, a stylish neckline, and a flowy skirt, this frock is
-                the epitome of grace and sophistication. Perfect for weddings,
-                cocktail parties, or any festive event, it ensures you stand out
-                in the crowd.
-              </p>
-              <ul className="product-details">
-                <li>Round-neck Midi</li>
-                <li>Sleeveless</li>
-                <li>Ruffles attached on</li>
-                <li>Fabric : Linen</li>
-                <li>Model Wears : UK 10 (M)</li>
-                <li>Base Color : Royal Blue</li>
-              </ul>
-
+              <p
+                dangerouslySetInnerHTML={{ __html: productState?.description }}
+              ></p>
               <p className="note">
                 <strong>PLEASE NOTE -</strong> Please note that the actual
                 product color may vary slightly from the image due to lighting

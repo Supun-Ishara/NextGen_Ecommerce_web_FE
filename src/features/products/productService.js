@@ -1,3 +1,39 @@
+import { axiosInstance } from '../../utils/axiosConfig';
+
+const getProducts = async () => {
+  try {
+    const response = await axiosInstance.get('product');
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
+
+const getSingleProduct = async (id) => {
+  try {
+    const response = await axiosInstance.get(`product/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
+
+const addToWishlist = async (prodId) => {
+  try {
+    const response = await axiosInstance.put('product/wishlist', { prodId });
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
+
+export const productService = {
+  getProducts,
+  addToWishlist,
+  getSingleProduct,
+};
+
+
 // import axios from "axios";
 // import { base_url, config } from "../../utils/axiosConfig";
 
@@ -25,27 +61,4 @@
 // };
 
 
-import { axiosInstance } from '../../utils/axiosConfig';
 
-const getProducts = async () => {
-  try {
-    const response = await axiosInstance.get('product');
-    return response.data;
-  } catch (error) {
-    throw error.response?.data || error.message;
-  }
-};
-
-const addToWishlist = async (prodId) => {
-  try {
-    const response = await axiosInstance.put('product/wishlist', { prodId });
-    return response.data;
-  } catch (error) {
-    throw error.response?.data || error.message;
-  }
-};
-
-export const productService = {
-  getProducts,
-  addToWishlist,
-};

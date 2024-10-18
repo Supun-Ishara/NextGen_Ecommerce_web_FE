@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const SpecialProduct = () => {
+const SpecialProduct = (props) => {
+  const { title, category, price, sold, quantity, id} = props;
   return (
     <div className='col-6 mb-3'>
         <div className='special-product-card'>
@@ -14,12 +15,13 @@ const SpecialProduct = () => {
                     />
                 </div>
                 <div className='special-product-content'>
-                    <h5 className='brand'>Frock</h5>
+                    <h5 className='brand'>{category}</h5>
                     <h6 className='title'>
-                        My special frock collection....
+                        {title}
                     </h6>
                     <p className='price'>
-                        <span className='red-p'>4500/=</span> &nbsp; <strike>5000/=</strike>
+                        <span className='red-p'>LKR {price}</span> &nbsp; 
+                        {/* <strike>LKR {price}</strike> */}
                     </p>
                     <div className='discount-till d-flex align-items-center gap-10'>
                         <p className='mb-0' style={{ whiteSpace: 'nowrap' }}>
@@ -32,19 +34,20 @@ const SpecialProduct = () => {
                         </div>
                     </div>
                     <div className='prod-count my-3'>
-                            <p>Products: 5</p>
+                            <p>Products: {quantity}</p>
                             <div className="progress">
                               <div 
                                 className="progress-bar" 
                                 role="progressbar" 
-                                style={{ width: '25%' }} 
-                                aria-valuenow="25" 
-                                aria-valuemin="0" 
-                                aria-valuemax="100">                      
+                                style={{ width: quantity / quantity + sold * 100 + "%" }} 
+                                aria-valuenow={quantity / quantity + sold * 100} 
+                                aria-valuemin={quantity} 
+                                aria-valuemax={sold + quantity}
+                                >                      
                               </div>
                             </div>
                         </div>
-                      <Link className='button1'>Add to Cart</Link>
+                      <Link className='button1' to={"/product/"+id}>View</Link>
                 </div>
             </div>
         </div>

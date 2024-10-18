@@ -45,7 +45,29 @@ export const getUserProductWishlist = createAsyncThunk(
       return thunkAPI.rejectWithValue(error);
     }
   }
-)
+);
+
+export const addProductToCart = createAsyncThunk(
+  "user/cart/add",
+  async (cartData, thunkAPI) => {
+    try {
+      return await authService.addToCart(cartData);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const getUserCart = createAsyncThunk(
+  "user/cart/get",
+  async (thunkAPI) => {
+    try {
+      return await authService.getCart();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 export const authSlice = createSlice({
   name: "auth",
@@ -120,6 +142,39 @@ export const authSlice = createSlice({
         // if (state.isError === true) {
         //   toast.error(action.payload?.message || "Get Wishlist failed");
         // }
+      })
+      .addCase(addProductToCart.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(addProductToCart.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.cartProduct = action.payload;
+        if (state.isSuccess) {
+          toast.success("Product Added to the Cart");
+        }
+      })
+      .addCase(addProductToCart.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.error;
+      })
+      .addCase(getUserCart.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getUserCart.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.cartProducts = action.payload;
+      })
+      .addCase(getUserCart.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.error;
       });
   },
 });

@@ -55,6 +55,7 @@ a {
 
 .error-message{
     color: red;
+    font-size: 12px;
 }
 
 /* Header Part */
@@ -196,7 +197,7 @@ footer .input-group-text{
 /* Home Wrapper 2 */
 
 .home-wrapper-2{
-    margin-top: -100px;
+    /* margin-top: -100px; */
     background-color: var(--color-c0fcf4);
     /* opacity: 0.5; */
 }
@@ -287,7 +288,7 @@ footer .input-group-text{
 }
 
 .product-card:hover .action-bar{
-    right: 15px;
+    right: 16px;
 }
 .product-card .product-details h6{
     color: var(--color-124494);
@@ -308,14 +309,22 @@ footer .input-group-text{
     margin-right: 20px;
 }
 .action-bar{
-    top: 11%;
+    top: 12%;
     right: -23px;
     transition: 0.3s;
 }
 .wishlist-icon{
-    top: 2%;
-    right: 15px;
+    top: 3%;
+    right: 13px;
     z-index: 10;
+    
+}
+.wishlist-icon-img{
+    color:#545454;
+}
+.wishlist-icon-img:hover{
+    cursor: pointer;
+    color: #d91c1c;
 }
 /* Product part ends */
 
@@ -760,8 +769,8 @@ footer .input-group-text{
     padding-left: 20px;
     border-radius: 5px;
     background-color: var(--color-ffffff);
-    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.19),
-                -6px -6px 10px -1px rgba(0, 0, 0, 0.16);
+    box-shadow: 6px 6px 10px -1px rgba(183, 183, 183, 0.15),
+                -6px -6px 10px -1px rgba(135, 135, 135, 0.15);
 }
 .accordion li label{
     font-size: 15px;
