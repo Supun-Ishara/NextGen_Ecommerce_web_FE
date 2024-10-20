@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { GoGitCompare } from "react-icons/go";
+import { MdFavoriteBorder } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
+import { TiShoppingCart } from "react-icons/ti";
+import { CgMenuGridO } from "react-icons/cg";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const cartState = useSelector((state) => state?.auth?.cartProducts);
+  const [total, setTotal] = useState(null);
+  useEffect(() => {
+    let sum = 0;
+    for (let index = 0; index < cartState.length; index++) {
+      sum =
+        sum +
+        Number(cartState[index].quantity) * Number(cartState[index].price);
+      setTotal(sum);
+    }
+  });
+
   return (
     <>
       <header className="header-top-strip py-3">
@@ -48,47 +67,55 @@ const Header = () => {
             </div>
             <div className="col-5">
               <div className="header-upper-links d-flex align-items-center justify-content-between">
-                <div>
-                  <Link 
-                        to="/compare-product" 
-                        className="d-flex align-items-center gap-10 text-white">
-                    <img src="images/compare.svg" alt="compare" />
+                <div >
+                  <Link
+                    to="/compare-product"
+                    className="d-flex align-items-center gap-10 text-white"
+                  >
+                    {/* <img src="images/compare.svg" alt="compare" /> */}
+                    <GoGitCompare size={35} />
                     <p className="mb-0">
                       {" "}
                       Compare <br /> Designs
                     </p>
                   </Link>
                 </div>
-                <div>
-                  <Link 
-                        to="/wishlist" 
-                        className="d-flex align-items-center gap-10 text-white">
-                    <img src="images/wishlist.svg" alt="wishlist" />
+                <div style={{marginLeft: "20px"}}>
+                  <Link
+                    to="/wishlist"
+                    className="d-flex align-items-center gap-10 text-white"
+                  >
+                    {/* <img src="images/wishlist.svg" alt="wishlist" /> */}
+                    <MdFavoriteBorder size={35} />
                     <p className="mb-0">
                       {" "}
                       Favourite <br /> wishlist
                     </p>
                   </Link>
                 </div>
-                <div>
-                  <Link 
-                        to="/login" 
-                        className="d-flex align-items-center gap-10 text-white">
-                    <img src="images/user.svg" alt="user" />
+                <div style={{marginLeft: "20px"}}>
+                  <Link
+                    to="/login"
+                    className="d-flex align-items-center gap-10 text-white"
+                  >
+                    {/* <img src="images/user.svg" alt="user" /> */}
+                    <FaRegUser size={35} />
                     <p className="mb-0">
                       {" "}
                       Log in <br /> My Account{" "}
                     </p>
                   </Link>
                 </div>
-                <div>
-                  <Link 
-                        to="/cart" 
-                        className="d-flex align-items-center gap-10 text-white">
-                    <img src="images/cart.svg" alt="cart" />
+                <div style={{marginLeft: "20px"}}>
+                  <Link
+                    to="/cart"
+                    className="d-flex align-items-center gap-10 text-white"
+                  >
+                    {/* <img src="images/cart.svg" alt="cart" /> */}
+                    <TiShoppingCart size={45} style={{color: "#c4a806"}}/>
                     <div className="d-flex flex-colunm gap-10">
-                      <span className="badge bg-white text-dark">0</span>
-                      <p className="mb-0">$ 500</p>
+                      <span className="badge bg-white text-dark">{ cartState?.length ? cartState?.length : 0}</span>
+                      <p className="mb-0">LKR {total ? total : 0}</p>
                     </div>
                   </Link>
                 </div>
@@ -111,7 +138,8 @@ const Header = () => {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img src="images/menu.svg" alt="menu" />
+                      {/* <img src="images/menu.svg" alt="menu" /> */}
+                      <CgMenuGridO size={38}/>
                       <span className="me-5 d-inline-block">
                         Clothes Categories
                       </span>

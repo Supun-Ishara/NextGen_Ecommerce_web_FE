@@ -9,39 +9,82 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { TbGitCompare } from "react-icons/tb";
 import sizechart from "../images/size-chart.jpg";
 import Container from "../components/Container";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAProduct } from "../features/products/productSlice";
 import { toast } from "react-toastify";
-import { addProductToCart } from "../features/user/userSlice";
+import { addProductToCart, getUserCart } from "../features/user/userSlice";
 //import ReactImageMagnify from 'react-image-magnify';
 
 const SingleProduct = () => {
   //const [color, setColor] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
-
+  const [alreadyAdded, setAlreadyAdded] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const getProductId = location.pathname.split("/")[2];
   const dispatch = useDispatch();
   const productState = useSelector((state) => state.product.singleproduct);
+  const cartState = useSelector((state) => state.auth.cartProducts);
   useEffect(() => {
     dispatch(getAProduct(getProductId));
-  }, []);
+    dispatch(getUserCart());
+  }, [dispatch, getProductId]);
+
+  // useEffect(() => {
+  //   for (let index = 0; index < cartState.length; index++){
+  //     if (getProductId === cartState[index]?.productId?._id) {
+  //       setAlreadyAdded(true)
+  //     }
+  //   }
+  // })
+  useEffect(() => {
+    if (cartState && cartState.length > 0) {
+      for (let index = 0; index < cartState.length; index++) {
+        if (getProductId === cartState[index]?.productId?._id) {
+          setAlreadyAdded(true);
+          break;
+        }
+      }
+    }
+  }, [cartState, getProductId]);
 
   const uploadCart = () => {
-    if (selectedColor  === null) {
+    //   if (selectedColor === null) {
+    //     toast.error("Please Choose Color");
+    //     return false;
+    //   } else {
+    //     dispatch(
+    //       addProductToCart({
+    //         productId: productState?._id,
+    //         quantity,
+    //         color: selectedColor,
+    //         price: productState?.price,
+    //       })
+    //     );
+    //     navigate("/cart");
+    //   }
+    // };
+
+    if (selectedColor === null) {
       toast.error("Please Choose Color");
-      return false
+      return false;
+    } else if (selectedSize === null) {
+      toast.error("Please Choose Size");
+      return false;
     } else {
       dispatch(
         addProductToCart({
-          productId:productState?._id,
+          productId: productState?._id,
           quantity,
-          color:selectedColor,
-          price:productState?.price,
+          color: selectedColor,
+          size: selectedSize, // Include selected size
+          price: productState?.price,
         })
       );
+      navigate("/cart");
     }
   };
 
@@ -130,7 +173,7 @@ const SingleProduct = () => {
                   <h3 className="product-heading">Availability : </h3>
                   <p className="product-data">In Stock</p>
                 </div>
-                <div className="d-flex gap-10 align-items-center mt-2 mb-3">
+                {/* <div className="d-flex gap-10 align-items-center mt-2 mb-3">
                   <h3 className="product-heading">Size : </h3>
                   <div className="d-flex flex-wrap gap-15">
                     <span className="badge border border-1 bg-white text-dark border-secondary">
@@ -161,43 +204,72 @@ const SingleProduct = () => {
                       5XL
                     </span>
                   </div>
-                </div>
+                </div> */}
+
                 <div className="d-flex gap-10 align-items-center mt-2 mb-3">
-                  <h3 className="product-heading">Color : </h3>
-                  <div className="product-color">
-                    <Color
-                      setColor={setSelectedColor}
-                      colorData={productState?.color}
-                      selectedColor={selectedColor}
-                    />
+                  <h3 className="product-heading">Size : </h3>
+                  <div className="d-flex flex-wrap gap-15">
+                    {productState?.size?.map((size, index) => (
+                      <span
+                        key={index}
+                        className={`badge border border-1 bg-white text-dark border-secondary ${
+                          selectedSize === size ? "active" : ""
+                        }`}
+                        onClick={() => setSelectedSize(size)} // Set selected size
+                        style={{ cursor: "pointer" }}
+                      >
+                        {size}
+                      </span>
+                    ))}
                   </div>
                 </div>
+
+                {alreadyAdded === false && (
+                  <>
+                    <div className="d-flex gap-10 align-items-center mt-2 mb-3">
+                      <h3 className="product-heading">Color : </h3>
+                      <div className="product-color">
+                        <Color
+                          setColor={setSelectedColor}
+                          colorData={productState?.color}
+                          selectedColor={selectedColor}
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+
                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
-                  <h3 className="product-heading">Quantity : </h3>
-                  <div className="">
-                    <input
-                      type="number"
-                      name=""
-                      min={1}
-                      max={10}
-                      className="form-control"
-                      style={{ width: "63px" }}
-                      id=""
-                      onChange={(e) => setQuantity(e.target.value)}
-                      value={quantity}
-                    />
-                  </div>
-                  <div className="d-flex align-items-center gap-30 ms-5">
+                  {alreadyAdded === false && (
+                    <>
+                      <h3 className="product-heading">Quantity : </h3>
+                      <div className="">
+                        <input
+                          type="number"
+                          name=""
+                          min={1}
+                          max={10}
+                          className="form-control"
+                          style={{ width: "63px" }}
+                          id=""
+                          onChange={(e) => setQuantity(e.target.value)}
+                          value={quantity}
+                        />
+                      </div>
+                    </>
+                  )}
+                  <div className={"d-flex align-items-center gap-30 ms-5"}>
+                    {/* //alreadyAdded? "ms-0" : "ms-5" + */}
                     <button
                       className="button1 border-0"
                       // data-bs-toggle="modal"
                       // data-bs-target="#staticBackdrop"
                       type="button"
                       onClick={() => {
-                        uploadCart();
+                        alreadyAdded ? navigate("/cart") : uploadCart();
                       }}
                     >
-                      Add to Cart
+                      {alreadyAdded ? "Go To Cart" : "Add to Cart"}
                     </button>
                     <button className="button1 signup">Buy Now</button>
                   </div>

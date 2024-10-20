@@ -818,6 +818,18 @@ footer .input-group-text{
     max-height: 520px; /* Adjust max-height if necessary */
     padding-top: 20px;
   }
+  .badge {
+    transition: all 0.3s ease;
+  }
+  
+  .badge:hover {
+    background-color: var(--bs-secondary) !important;
+    color: white !important;
+  }
+  .badge.active {
+    background-color: var(--bs-secondary) !important;
+    color: white !important;
+  }
 /* Main Product Page ends */
 
 /* Cart Page */
