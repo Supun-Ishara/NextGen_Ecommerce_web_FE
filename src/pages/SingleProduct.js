@@ -42,7 +42,7 @@ const SingleProduct = () => {
   // })
   useEffect(() => {
     if (cartState && cartState.length > 0) {
-      for (let index = 0; index < cartState.length; index++) {
+      for (let index = 0; index < cartState?.length; index++) {
         if (getProductId === cartState[index]?.productId?._id) {
           setAlreadyAdded(true);
           break;
@@ -80,7 +80,7 @@ const SingleProduct = () => {
           productId: productState?._id,
           quantity,
           color: selectedColor,
-          size: selectedSize, // Include selected size
+          size: selectedSize, // This is the selected size
           price: productState?.price,
         })
       );
@@ -173,39 +173,6 @@ const SingleProduct = () => {
                   <h3 className="product-heading">Availability : </h3>
                   <p className="product-data">In Stock</p>
                 </div>
-                {/* <div className="d-flex gap-10 align-items-center mt-2 mb-3">
-                  <h3 className="product-heading">Size : </h3>
-                  <div className="d-flex flex-wrap gap-15">
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      XS
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      S
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      M
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      L
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      XL
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      2XL
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      3XL
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      4XL
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      5XL
-                    </span>
-                  </div>
-                </div> */}
-
                 <div className="d-flex gap-10 align-items-center mt-2 mb-3">
                   <h3 className="product-heading">Size : </h3>
                   <div className="d-flex flex-wrap gap-15">

@@ -452,7 +452,19 @@ footer .input-group-text{
     flex-wrap: wrap;
     gap: 10px;
 }
+.colors1{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 .colors li{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+.colors1 li{
     width: 20px;
     height: 20px;
     background-color: red;

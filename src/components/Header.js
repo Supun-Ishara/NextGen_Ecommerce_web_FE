@@ -11,6 +11,7 @@ import { CgMenuGridO } from "react-icons/cg";
 const Header = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state?.auth?.cartProducts);
+  const authState = useSelector(state => state.auth)
   const [total, setTotal] = useState(null);
   useEffect(() => {
     let sum = 0;
@@ -80,7 +81,7 @@ const Header = () => {
                     </p>
                   </Link>
                 </div>
-                <div style={{marginLeft: "20px"}}>
+                <div style={{marginLeft: "25px"}}>
                   <Link
                     to="/wishlist"
                     className="d-flex align-items-center gap-10 text-white"
@@ -93,20 +94,23 @@ const Header = () => {
                     </p>
                   </Link>
                 </div>
-                <div style={{marginLeft: "20px"}}>
+                <div style={{marginLeft: "25px"}}>
                   <Link
-                    to="/login"
+                    to={authState?.user === null ? "/login" : ""}
                     className="d-flex align-items-center gap-10 text-white"
                   >
                     {/* <img src="images/user.svg" alt="user" /> */}
                     <FaRegUser size={35} />
-                    <p className="mb-0">
-                      {" "}
-                      Log in <br /> My Account{" "}
+                    {
+                      authState?.user === null ? <p className="mb-0">
+                      Log in <br /> My Account
+                    </p>: <p className="mb-0 mt-3">
+                      Welcome <p style={{color: "#d9bc18"}}>{authState?.user?.firstname}</p> 
                     </p>
+                    }
                   </Link>
                 </div>
-                <div style={{marginLeft: "20px"}}>
+                <div style={{marginLeft: "25px"}}>
                   <Link
                     to="/cart"
                     className="d-flex align-items-center gap-10 text-white"
@@ -114,7 +118,7 @@ const Header = () => {
                     {/* <img src="images/cart.svg" alt="cart" /> */}
                     <TiShoppingCart size={45} style={{color: "#c4a806"}}/>
                     <div className="d-flex flex-colunm gap-10">
-                      <span className="badge bg-white text-dark">{ cartState?.length ? cartState?.length : 0}</span>
+                      <span className="badge bg-white text-dark" style={{height: "22px", marginTop: "12px"}}>{ cartState?.length ? cartState?.length : 0}</span>
                       <p className="mb-0">LKR {total ? total : 0}</p>
                     </div>
                   </Link>
@@ -170,7 +174,8 @@ const Header = () => {
                   <div className="d-flex align-item-center gap-15">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/product">Our Store</NavLink>
-                    <NavLink to="/">Blogs</NavLink>
+                    <NavLink to="/my-orders">My Orders</NavLink>
+                    {/* <NavLink to="/">Blogs</NavLink> */}
                     <NavLink to="/contact">Contact</NavLink>
                   </div>
                 </div>

@@ -49,8 +49,7 @@ let sum = 0;
 for (let index = 0; index < userCartState?.length; index++) {
   sum = sum+(Number(userCartState[index].quantity)*userCartState[index].price)
   setTotalAmount(sum);
-  
-  
+
 }
 }, [userCartState])
 
@@ -72,7 +71,7 @@ for (let index = 0; index < userCartState?.length; index++) {
       {/* {userCartState &&
               userCartState?.map((item, index) => { */}
               {userCartState && userCartState.length > 0 ? (
-  userCartState.map((item, index) => {
+               userCartState.map((item, index) => {
               return (
                 <div
                   key={index}
@@ -81,7 +80,8 @@ for (let index = 0; index < userCartState?.length; index++) {
                   <div className="cart-col-1 gap-15 d-flex align-items-center">
                     <div>
                       <img
-                        src={watch}
+                        // src={watch}
+                        src={item?.productId?.images?.[0]?.url || watch}
                         className="img-fluid"
                         alt="product image"
                       />
@@ -93,10 +93,12 @@ for (let index = 0; index < userCartState?.length; index++) {
                         Color:{" "}
                         <ul className="colors ps-0">
                           <li
-                            style={{ backgroundColor: item?.color.title }}
+                            style={{ backgroundColor: item?.color?.title }}
                           ></li>
                         </ul>
                       </p>
+                      <p>Size: {item?.size}</p>
+
                     </div>
                   </div>
                   <div className="cart-col-2">

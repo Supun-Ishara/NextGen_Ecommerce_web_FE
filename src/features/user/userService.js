@@ -59,7 +59,7 @@ const addToCart = async (cartData) => {
 
 const getCart = async () => {
   try {
-    const response = await axiosInstance.get('user/cart');
+    const response = await axiosInstance.get("user/cart");
     if (response.data && Array.isArray(response.data)) {
       return response.data;
     } else {
@@ -86,8 +86,33 @@ const removeProductFromCart = async (cartItemId) => {
 const updateProductFromCart = async (cartDetail) => {
   try {
     const response = await axiosInstance.put(
-      `user/update-product-cart/${cartDetail.cartItemId}/${cartDetail.quantity}`,
+      `user/update-product-cart/${cartDetail.cartItemId}/${cartDetail.quantity}`
     );
+    if (response.data) {
+      return response.data;
+    }
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
+
+const createOrder = async (orderDetail) => {
+  try {
+    const response = await axiosInstance.post(
+      `user/cart/create-order`,
+      orderDetail
+    );
+    if (response.data) {
+      return response.data;
+    }
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
+
+const getUserOrders = async () => {
+  try {
+    const response = await axiosInstance.get(`user/getmyorders`);
     if (response.data) {
       return response.data;
     }
@@ -104,6 +129,8 @@ export const authService = {
   getCart,
   removeProductFromCart,
   updateProductFromCart,
+  createOrder,
+  getUserOrders,
 };
 
 // import axios from "axios";
