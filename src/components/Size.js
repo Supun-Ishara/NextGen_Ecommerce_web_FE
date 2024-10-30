@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 const Size = () => {
-  const [selectedSize, setSelectedSize] = useState('XS');
-  const sizes = ['XS', 'S', 'M', 'L', 'XL'];
+  const [selectedSize, setSelectedSize] = useState('');
+  const sizes = ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'];
 
   return (
     <div className="flex flex-col items-start">
@@ -27,7 +27,7 @@ const Size = () => {
               onChange={() => setSelectedSize(size)}
               className="sr-only"
             />
-            {size}
+            <span className="text-sm">{size}</span>
           </label>
         ))}
       </div>

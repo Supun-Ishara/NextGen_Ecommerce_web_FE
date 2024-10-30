@@ -110,9 +110,11 @@ const createOrder = async (orderDetail) => {
   }
 };
 
+
+
 const getUserOrders = async () => {
   try {
-    const response = await axiosInstance.get(`user/getmyorders`);
+    const response = await axiosInstance.get("user/getmyorders");
     if (response.data) {
       return response.data;
     }
@@ -120,6 +122,41 @@ const getUserOrders = async () => {
     throw error.response?.data || error.message;
   }
 };
+
+const updateUser = async (data) => {
+  try {
+    const response = await axiosInstance.put("user/edit-user", data);
+    if (response.data) {
+      return response.data;
+    }
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
+
+const forgotPassToken = async (data) => {
+  try {
+    const response = await axiosInstance.post("user/forgot-password-token", data);
+    if (response.data) {
+      return response.data;
+    }
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
+
+const resetPass = async (data) => {
+  try {
+    const response = await axiosInstance.put( `user/reset-password/${data.token}`,
+      { password: data.password });
+    if (response.data) {
+      return response.data;
+    }
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
+
 
 export const authService = {
   register,
@@ -131,6 +168,9 @@ export const authService = {
   updateProductFromCart,
   createOrder,
   getUserOrders,
+  updateUser,
+  forgotPassToken,
+  resetPass,
 };
 
 // import axios from "axios";

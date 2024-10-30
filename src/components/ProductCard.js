@@ -18,6 +18,11 @@ const ProductCard = (props) => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
 
+  if (!Array.isArray(data)) {
+    console.error("Product data is not an array:", data);
+    return null; // Render nothing or an appropriate placeholder
+  }
+
   const handleAddToWishlist = async (id) => {
     if (!user) {
       toast.error("Please login to add items to wishlist");
@@ -32,7 +37,10 @@ const ProductCard = (props) => {
     }
   };
 
-  // const products = Array.isArray(data) ? data : [];
+  //  const products = Array.isArray(data) ? data : [];
+  // if (!Array.isArray(data)) {
+  //   return null; // or return a loading state/placeholder
+  // }
 
   return (
     <>
@@ -96,9 +104,9 @@ const ProductCard = (props) => {
               </div>
               <div className="action-bar position-absolute">
                 <div className="d-flex flex-column gap-15">
-                  <button className="border-0 bg-transparent">
+                  {/* <button className="border-0 bg-transparent">
                     <img src={prodcompare} alt="Compare Product" />
-                  </button>
+                  </button> */}
                   <button className="border-0 bg-transparent">
                     <img
                       onClick={() => navigate("/product/" + item?._id)}
@@ -106,9 +114,9 @@ const ProductCard = (props) => {
                       alt="View Product"
                     />
                   </button>
-                  <button className="border-0 bg-transparent">
+                  {/* <button className="border-0 bg-transparent">
                     <img src={addcart} alt="Add to Cart" />
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </Link>
