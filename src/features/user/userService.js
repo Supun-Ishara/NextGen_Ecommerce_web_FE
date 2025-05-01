@@ -12,15 +12,35 @@ const register = async (userData) => {
   }
 };
 
+// const login = async (userData) => {
+//   try {
+//     const response = await axiosInstance.post("user/login", userData);
+//     if (response.data) {
+//       localStorage.setItem("customer", JSON.stringify(response.data));
+//       return response.data;
+//     }
+//   } catch (error) {
+//     throw error.response?.data || error.message;
+//   }
+// };
+
 const login = async (userData) => {
   try {
     const response = await axiosInstance.post("user/login", userData);
     if (response.data) {
+      if (response.data.success === false) {
+        throw response.data;
+      }
       localStorage.setItem("customer", JSON.stringify(response.data));
       return response.data;
     }
   } catch (error) {
-    throw error.response?.data || error.message;
+    // Extract the error message from the response
+    if (error.response?.data) {
+      throw error.response.data;
+    } else {
+      throw { message: error.message || "Something went wrong during login" };
+    }
   }
 };
 

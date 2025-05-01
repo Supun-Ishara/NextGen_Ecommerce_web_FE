@@ -193,8 +193,32 @@ export const authSlice = createSlice({
           toast.error(action.payload?.message || "Registration failed");
         }
       })
+      // .addCase(loginUser.pending, (state) => {
+      //   state.isLoading = true;
+      // })
+      // .addCase(loginUser.fulfilled, (state, action) => {
+      //   state.isLoading = false;
+      //   state.isError = false;
+      //   state.isSuccess = true;
+      //   state.user = action.payload;
+      //   if (state.isSuccess === true) {
+      //     toast.success("Logged In Successfully");
+      //   }
+      // })
+      // .addCase(loginUser.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.isError = true;
+      //   state.isSuccess = false;
+      //   state.message = action.payload;
+      //   if (state.isError === true) {
+      //     toast.error(action.payload?.message || "Login failed");
+      //   }
+      // })
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
+        state.isError = false;
+        state.isSuccess = false;
+        state.message = "";
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -209,7 +233,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;
-        state.message = action.payload;
+        state.message = action.payload?.message || "Invalid credentials";
         if (state.isError === true) {
           toast.error(action.payload?.message || "Login failed");
         }
